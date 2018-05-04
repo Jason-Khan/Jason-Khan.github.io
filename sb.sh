@@ -403,8 +403,8 @@ function install_ss(){
     cd $cur_dir
     # unzip -q manyuser.zip
     # mv shadowsocks-manyuser/shadowsocks /usr/local/
-	git clone https://github.com/Jason-Khan/shadowsocksr.git /usr/local/shadowsocks
-    if [ -f /usr/local/shadowsocks/shadowsocks/server.py ]; then
+	git clone https://github.com/Jason-Khan/shadowsocksr-1.git /usr/local/shadowsocks
+    if [ -f /usr/local/shadowsocks/server.py ]; then
         chmod +x /etc/init.d/shadowsocks
         # Add run on system start up
         if [ "$OS" == 'CentOS' ]; then
