@@ -403,7 +403,7 @@ function install_ss(){
     cd $cur_dir
     # unzip -q manyuser.zip
     # mv shadowsocks-manyuser/shadowsocks /usr/local/
-	git clone https://github.com/shadowsocksr/shadowsocksr.git /usr/local/shadowsocks
+	git clone https://github.com/Jason-Khan/shadowsocksr.git /usr/local/shadowsocks
     if [ -f /usr/local/shadowsocks/server.py ]; then
         chmod +x /etc/init.d/shadowsocks
         # Add run on system start up
@@ -421,10 +421,9 @@ function install_ss(){
         echo -e "Server IP: \033[41;37m ${IP} \033[0m"
         echo -e "Server Port: \033[41;37m ${shadowsocksport} \033[0m"
         echo -e "Password: \033[41;37m ${shadowsockspwd} \033[0m"
-        echo -e "Protocol: \033[41;37m auth_sha1_v4 \033[0m"
+        echo -e "Protocol: \033[41;37m auth_chain_a \033[0m"
         echo -e "obfs: \033[41;37m tls1.2_ticket_auth \033[0m"
-        echo -e "Encryption Method: \033[41;37m chacha20 \033[0m"
-        echo "Welcome to visit:http://www.suiyuanjian.com/"
+        echo -e "Encryption Method: \033[41;37m none \033[0m"
         echo "If you want to change protocol & obfs, reference URL:"
         echo "https://github.com/breakwa11/shadowsocks-rss/wiki/Server-Setup"
         echo
