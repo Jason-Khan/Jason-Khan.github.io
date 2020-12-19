@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <div id="doc" class="markdown-body container-fluid comment-enabled cc_cursor comment-inner" data-hard-breaks="true"><h1 id="CS-194-Final-Projects" data-id="CS-194-Final-Projects"><a class="anchor hidden-xs" href="#CS-194-Final-Projects" title="CS-194-Final-Projects"><span class="octicon octicon-link"></span></a><span>CS 194 Final Projects</span></h1><h2 id="Jason-Wang-amp-Jenny-Song" data-id="Jason-Wang-amp-Jenny-Song"><a class="anchor hidden-xs" href="#Jason-Wang-amp-Jenny-Song" title="Jason-Wang-amp-Jenny-Song"><span class="octicon octicon-link"></span></a><span>Jason Wang &amp; Jenny Song</span></h2><h2 id="I-Poor-Man’s-Augmented-Reality" data-id="I-Poor-Man’s-Augmented-Reality"><a class="anchor hidden-xs" href="#I-Poor-Man’s-Augmented-Reality" title="I-Poor-Man’s-Augmented-Reality"><span class="octicon octicon-link"></span></a><span>I. Poor Man’s Augmented Reality</span></h2><table>
+    <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true"><h1 id="CS-194-Final-Projects" data-id="CS-194-Final-Projects"><a class="anchor hidden-xs" href="#CS-194-Final-Projects" title="CS-194-Final-Projects"><span class="octicon octicon-link"></span></a><span>CS 194 Final Projects</span></h1><h2 id="Jason-Wang-amp-Jenny-Song" data-id="Jason-Wang-amp-Jenny-Song"><a class="anchor hidden-xs" href="#Jason-Wang-amp-Jenny-Song" title="Jason-Wang-amp-Jenny-Song"><span class="octicon octicon-link"></span></a><span>Jason Wang &amp; Jenny Song</span></h2><h2 id="I-Poor-Man’s-Augmented-Reality" data-id="I-Poor-Man’s-Augmented-Reality"><a class="anchor hidden-xs" href="#I-Poor-Man’s-Augmented-Reality" title="I-Poor-Man’s-Augmented-Reality"><span class="octicon octicon-link"></span></a><span>I. Poor Man’s Augmented Reality</span></h2><h3 id="Setup" data-id="Setup"><a class="anchor hidden-xs" href="#Setup" title="Setup"><span class="octicon octicon-link"></span></a><span>Setup</span></h3><p><span>We were able to label a 3D coordinate system on a small box.</span></p><h3 id="Keypoints-with-known-3D-world-coordinates" data-id="Keypoints-with-known-3D-world-coordinates"><a class="anchor hidden-xs" href="#Keypoints-with-known-3D-world-coordinates" title="Keypoints-with-known-3D-world-coordinates"><span class="octicon octicon-link"></span></a><span>Keypoints with known 3D world coordinates</span></h3><p><span>Using </span><code>plt.ginput</code><span>, we mark top left and bottom right for extracting initial bounding boxes.</span></p><h3 id="Propogating-Keypoints-to-other-Images-in-the-Video" data-id="Propogating-Keypoints-to-other-Images-in-the-Video"><a class="anchor hidden-xs" href="#Propogating-Keypoints-to-other-Images-in-the-Video" title="Propogating-Keypoints-to-other-Images-in-the-Video"><span class="octicon octicon-link"></span></a><span>Propogating Keypoints to other Images in the Video</span></h3><p><span>After the bounding boxes are established for the first frame, we use </span><code>cv2.TrackerMedianFlow_create</code><span> to create trackers for the bounding boxes, and as our video goes on, we update our trackers with the new frames and the trackers update the bounding box location. With bounding boxes, we take the midpoint and see that as a keypoint of our video.</span></p><h3 id="Calibrating-the-Camera" data-id="Calibrating-the-Camera"><a class="anchor hidden-xs" href="#Calibrating-the-Camera" title="Calibrating-the-Camera"><span class="octicon octicon-link"></span></a><span>Calibrating the Camera</span></h3><p><span>So far, we have a bunch of keypoints in our video. Our next step is to establish a 3D coordinate system that can be mapped onto these 2D keypoints, and once we have the 3D coordinates, we can find the projection matrix that projects a 3D coordinate to its 2D location on the image.</span></p><p><span>To recover the 3D-to-2D camera projection matrix, we take apart the p’ = Hp equation and rearranged it into Ax = b format, of which x is a vector of the 11 degrees of freedom. Then I was able to call np.linalg.lstsq to solve for the 11 unknowns.</span></p><p><img src="https://i.imgur.com/2RG5iZm.png" alt=""></p><h3 id="Projecting-a-cube-in-the-Scene" data-id="Projecting-a-cube-in-the-Scene"><a class="anchor hidden-xs" href="#Projecting-a-cube-in-the-Scene" title="Projecting-a-cube-in-the-Scene"><span class="octicon octicon-link"></span></a><span>Projecting a cube in the Scene</span></h3><p><span>With the projection matrix, all there is left is to establish the box’s 3D corner coordinates and call </span><code>draw()</code><span> to render our AR box!</span></p><h3 id="Result" data-id="Result"><a class="anchor hidden-xs" href="#Result" title="Result"><span class="octicon octicon-link"></span></a><span>Result</span></h3><p><span>We were able to render the box at the second row for stability. Our first row keypoints sometimes disappear from our trackers, and that caused the box’s shape to be very unstable.</span></p><table>
 <thead>
 <tr>
 <th><span>Video</span></th>
@@ -44,14 +44,161 @@
 <tbody>
 <tr>
 <td><img src="https://i.imgur.com/FY7mXfv.gif" alt=""></td>
-<td style="text-align:center"><span>Input Video</span></td>
+<td style="text-align:center"><span>Keypoints</span></td>
 </tr>
 <tr>
 <td><img src="https://i.imgur.com/JCVpd3K.gif" alt=""></td>
-<td style="text-align:center"><span>Output Video</span></td>
+<td style="text-align:center"><span>AR-box</span></td>
 </tr>
 </tbody>
-</table><h2 id="II-A-Neural-Algorithm-of-Artistic-Style" data-id="II-A-Neural-Algorithm-of-Artistic-Style"><a class="anchor hidden-xs" href="#II-A-Neural-Algorithm-of-Artistic-Style" title="II-A-Neural-Algorithm-of-Artistic-Style"><span class="octicon octicon-link"></span></a><span>II. A Neural Algorithm of Artistic Style</span></h2><h2 id="III-Lightfield-Camera" data-id="III-Lightfield-Camera"><a class="anchor hidden-xs" href="#III-Lightfield-Camera" title="III-Lightfield-Camera"><span class="octicon octicon-link"></span></a><span>III. Lightfield Camera</span></h2></div>
+</table><h2 id="II-A-Neural-Algorithm-of-Artistic-Style" data-id="II-A-Neural-Algorithm-of-Artistic-Style"><a class="anchor hidden-xs" href="#II-A-Neural-Algorithm-of-Artistic-Style" title="II-A-Neural-Algorithm-of-Artistic-Style"><span class="octicon octicon-link"></span></a><span>II. A Neural Algorithm of Artistic Style</span></h2><p><span>We used VGG-19 as our feature extractor.</span></p><p><img src="https://i.imgur.com/Gr7RJsM.png" alt=""></p><p><span>We followed the paper to extract content loss after </span><code>conv4_2</code><span> and style loss after </span><code>conv1_1</code><span>,</span><code>conv2_1</code><span>,</span><code>conv3_1</code><span>,</span><code>conv4_1</code><span>,</span><code>conv5_1</code><span>. We used an Adam optimizer with learning rate of 1e-1. By setting alpha/beta = 2e-11, we are able to retrieve solid results within 2000 epochs.</span></p><p><span>We also followed Yibin’s advice on piazza and started with the content image instead of white noise. This gave us a performance improvement because our content image is already close to a local minima, and starting from here is a good heuristic in guiding our optimizer and converge faster.</span></p><h3 id="Results" data-id="Results"><a class="anchor hidden-xs" href="#Results" title="Results"><span class="octicon octicon-link"></span></a><span>Results</span></h3><h4 id="Neckarfront" data-id="Neckarfront"><a class="anchor hidden-xs" href="#Neckarfront" title="Neckarfront"><span class="octicon octicon-link"></span></a><span>Neckarfront</span></h4><table>
+<thead>
+<tr>
+<th><span>Style</span></th>
+<th><span>Content</span></th>
+<th><span>Our Result</span></th>
+<th><span>Paper Result</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://i.imgur.com/EnbFv6o.jpg" alt="" width="250" height="100"></td>
+<td><img src="https://i.imgur.com/BkJTSnJ.jpg" alt="" width="250"></td>
+<td><img src="https://i.imgur.com/whoBTxn.jpg" alt="" width="250"></td>
+<td><img src="https://i.imgur.com/MGbVN2T.png" alt="" width="250"></td>
+</tr>
+<tr>
+<td><img src="https://i.imgur.com/ZkAfY0F.jpg" alt="" width="250" height="100"></td>
+<td><img src="https://i.imgur.com/BkJTSnJ.jpg" alt="" width="250"></td>
+<td><img src="https://i.imgur.com/LbzZecs.jpg" alt="" width="250"></td>
+<td><img src="https://i.imgur.com/p4mpTsc.png" alt="" width="250"></td>
+</tr>
+<tr>
+<td><img src="https://i.imgur.com/9jF5TX1.jpg" alt="" width="250" height="100"></td>
+<td><img src="https://i.imgur.com/BkJTSnJ.jpg" alt="" width="250"></td>
+<td><img src="https://i.imgur.com/4UMMmQQ.jpg" alt="" width="250"></td>
+<td><img src="https://i.imgur.com/QyE0NSD.png" alt="" width="250"></td>
+</tr>
+</tbody>
+</table><h4 id="Our-Choices" data-id="Our-Choices"><a class="anchor hidden-xs" href="#Our-Choices" title="Our-Choices"><span class="octicon octicon-link"></span></a><span>Our Choices</span></h4><table>
+<thead>
+<tr>
+<th><span>Style</span></th>
+<th><span>Content</span></th>
+<th><span>Result</span></th>
+<th><span>Case</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://i.imgur.com/S08artL.jpg" alt="" width="250"></td>
+<td><img src="https://i.imgur.com/YSCLaSe.jpg" alt="" width="250"></td>
+<td><img src="https://i.imgur.com/xmIfiLz.jpg" alt="" width="250"></td>
+<td><span>Success</span></td>
+</tr>
+<tr>
+<td><img src="https://i.imgur.com/R85nZov.jpg" alt="" width="250"></td>
+<td><img src="https://i.imgur.com/KJZL3qd.jpg" alt="" width="250"></td>
+<td><img src="https://i.imgur.com/rprAMZ7.jpg" alt="" width="250"></td>
+<td><span>Success</span></td>
+</tr>
+<tr>
+<td><img src="https://i.imgur.com/gZDwz2n.jpg" alt="" width="250" height="180"></td>
+<td><img src="https://i.imgur.com/XNk8BNq.jpg" alt="" width="250" height="180"></td>
+<td><img src="https://i.imgur.com/1iSSliQ.jpg" alt="" width="250" height="180"></td>
+<td><span>Failure</span></td>
+</tr>
+</tbody>
+</table><p><span>For the failure case, we think that it is better for the style image to have a pattern that the ConvNet can transfer to the content. In this case, Oski can be a pattern, but it is a creepy one…</span></p><h2 id="III-Lightfield-Camera" data-id="III-Lightfield-Camera"><a class="anchor hidden-xs" href="#III-Lightfield-Camera" title="III-Lightfield-Camera"><span class="octicon octicon-link"></span></a><span>III. Lightfield Camera</span></h2><h3 id="Depth-Refocusing" data-id="Depth-Refocusing"><a class="anchor hidden-xs" href="#Depth-Refocusing" title="Depth-Refocusing"><span class="octicon octicon-link"></span></a><span>Depth Refocusing</span></h3><p><span>Images taken with lightfield cameras can have their focus length adjusted. We achieved this by shifting and averaging images to make certain parts more aligned than other parts, so the aligned parts would be in focus(clear) and the other parts would be blurry. With images’ coordinates shown in the filenames, we can shift an image with respect to the center coordinate, (8, 8). By rolling </span><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-15-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>&amp;#x03B1;</mi><mo stretchy=&quot;false&quot;>(</mo><mn>8</mn><mo>&amp;#x2212;</mo><mi>x</mi><mo stretchy=&quot;false&quot;>)</mo></math>" role="presentation" style="font-size: 113%; position: relative;"><span id="MJXc-Node-1" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2" class="mjx-mrow"><span id="MJXc-Node-3" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">α</span></span><span id="MJXc-Node-4" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">(</span></span><span id="MJXc-Node-5" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.39em;">8</span></span><span id="MJXc-Node-6" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.279em; padding-bottom: 0.445em;">−</span></span><span id="MJXc-Node-7" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">x</span></span><span id="MJXc-Node-8" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi><mo stretchy="false">(</mo><mn>8</mn><mo>−</mo><mi>x</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-15">\alpha(8-x)</script></span><span> horizontally and </span><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-16-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>&amp;#x03B1;</mi><mo stretchy=&quot;false&quot;>(</mo><mn>8</mn><mo>&amp;#x2212;</mo><mi>y</mi><mo stretchy=&quot;false&quot;>)</mo></math>" role="presentation" style="font-size: 113%; position: relative;"><span id="MJXc-Node-9" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-10" class="mjx-mrow"><span id="MJXc-Node-11" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">α</span></span><span id="MJXc-Node-12" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">(</span></span><span id="MJXc-Node-13" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.39em;">8</span></span><span id="MJXc-Node-14" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.279em; padding-bottom: 0.445em;">−</span></span><span id="MJXc-Node-15" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.501em; padding-right: 0.006em;">y</span></span><span id="MJXc-Node-16" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi><mo stretchy="false">(</mo><mn>8</mn><mo>−</mo><mi>y</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-16">\alpha(8-y)</script></span><span> vertically, we can refocus to a specific depth.</span></p><table>
+<thead>
+<tr>
+<th><span>Chessboard</span></th>
+<th><span>Stone</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://jason-khan.github.io/final_projs/chess_focus.gif" alt=""></td>
+<td><img src="https://jason-khan.github.io/final_projs/stone_focus.gif" alt=""></td>
+</tr>
+<tr>
+<td><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-17-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>&amp;#x03B1;</mi></math>" role="presentation" style="font-size: 113%; position: relative;"><span id="MJXc-Node-17" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-18" class="mjx-mrow"><span id="MJXc-Node-19" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">α</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math></span></span><script type="math/tex" id="MathJax-Element-17">\alpha</script></span><span> ~ (-1, 5), step 0.1</span></td>
+<td><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-18-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>&amp;#x03B1;</mi></math>" role="presentation" style="font-size: 113%; position: relative;"><span id="MJXc-Node-20" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-21" class="mjx-mrow"><span id="MJXc-Node-22" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">α</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math></span></span><script type="math/tex" id="MathJax-Element-18">\alpha</script></span><span> ~ (-3, 3), step 0.1</span></td>
+</tr>
+</tbody>
+</table><h3 id="Aperture-Adjustment" data-id="Aperture-Adjustment"><a class="anchor hidden-xs" href="#Aperture-Adjustment" title="Aperture-Adjustment"><span class="octicon octicon-link"></span></a><span>Aperture Adjustment</span></h3><p><span>By seletively average only images with in a certain radius, we can achieve varying aperature size. Our implementation is to select all images that satisfy </span><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-19-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>|</mo></mrow><mi>x</mi><mo>&amp;#x2212;</mo><mn>8</mn><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>|</mo></mrow><mo>&amp;lt;=</mo><mi>r</mi></math>" role="presentation" style="font-size: 113%; position: relative;"><span id="MJXc-Node-23" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-24" class="mjx-mrow"><span id="MJXc-Node-25" class="mjx-texatom"><span id="MJXc-Node-26" class="mjx-mrow"><span id="MJXc-Node-27" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">|</span></span></span></span><span id="MJXc-Node-28" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">x</span></span><span id="MJXc-Node-29" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.279em; padding-bottom: 0.445em;">−</span></span><span id="MJXc-Node-30" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.39em;">8</span></span><span id="MJXc-Node-31" class="mjx-texatom"><span id="MJXc-Node-32" class="mjx-mrow"><span id="MJXc-Node-33" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">|</span></span></span></span><span id="MJXc-Node-34" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.058em; padding-bottom: 0.39em;">&lt;<span class="mjx-charbox MJXc-TeX-main-R" style="padding-bottom: 0.314em;">=</span></span></span><span id="MJXc-Node-35" class="mjx-mi MJXc-space3"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">r</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mi>x</mi><mo>−</mo><mn>8</mn><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mo>&lt;=</mo><mi>r</mi></math></span></span><script type="math/tex" id="MathJax-Element-19">|x-8| <= r</script></span><span> and </span><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-20-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>|</mo></mrow><mi>y</mi><mo>&amp;#x2212;</mo><mn>8</mn><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>|</mo></mrow><mo>&amp;lt;=</mo><mi>r</mi></math>" role="presentation" style="font-size: 113%; position: relative;"><span id="MJXc-Node-36" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-37" class="mjx-mrow"><span id="MJXc-Node-38" class="mjx-texatom"><span id="MJXc-Node-39" class="mjx-mrow"><span id="MJXc-Node-40" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">|</span></span></span></span><span id="MJXc-Node-41" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.501em; padding-right: 0.006em;">y</span></span><span id="MJXc-Node-42" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.279em; padding-bottom: 0.445em;">−</span></span><span id="MJXc-Node-43" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.39em;">8</span></span><span id="MJXc-Node-44" class="mjx-texatom"><span id="MJXc-Node-45" class="mjx-mrow"><span id="MJXc-Node-46" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">|</span></span></span></span><span id="MJXc-Node-47" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.058em; padding-bottom: 0.39em;">&lt;<span class="mjx-charbox MJXc-TeX-main-R" style="padding-bottom: 0.314em;">=</span></span></span><span id="MJXc-Node-48" class="mjx-mi MJXc-space3"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">r</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mi>y</mi><mo>−</mo><mn>8</mn><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mo>&lt;=</mo><mi>r</mi></math></span></span><script type="math/tex" id="MathJax-Element-20">|y-8| <= r</script></span><span> and average them.</span></p><table>
+<thead>
+<tr>
+<th><span>Chessboard</span></th>
+<th><span>Stone</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://jason-khan.github.io/final_projs/chess_aperture.gif" alt=""></td>
+<td><img src="https://jason-khan.github.io/final_projs/stone_aperture.gif" alt=""></td>
+</tr>
+<tr>
+<td><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-21-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>r</mi></math>" role="presentation" style="font-size: 113%; position: relative;"><span id="MJXc-Node-49" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-50" class="mjx-mrow"><span id="MJXc-Node-51" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">r</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi></math></span></span><script type="math/tex" id="MathJax-Element-21">r</script></span><span> ~ (0, 10), step 1</span></td>
+<td><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-22-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>r</mi></math>" role="presentation" style="font-size: 113%; position: relative;"><span id="MJXc-Node-52" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-53" class="mjx-mrow"><span id="MJXc-Node-54" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">r</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi></math></span></span><script type="math/tex" id="MathJax-Element-22">r</script></span><span> ~ (0, 10), step 1</span></td>
+</tr>
+</tbody>
+</table><h2 id="Bells-and-Whistles" data-id="Bells-and-Whistles"><a class="anchor hidden-xs" href="#Bells-and-Whistles" title="Bells-and-Whistles"><span class="octicon octicon-link"></span></a><span>Bells and Whistles</span></h2><h3 id="Interactive-Refocusing" data-id="Interactive-Refocusing"><a class="anchor hidden-xs" href="#Interactive-Refocusing" title="Interactive-Refocusing"><span class="octicon octicon-link"></span></a><span>Interactive Refocusing</span></h3><p><span>We implemented interactive refocusing by using </span><code>plt.ginput</code><span> to take in a coordinate (x, y), and extract a patch of 100x100 with (x, y) as the center. We extract a patch for each image, and loop over </span><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-23-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>&amp;#x03B1;</mi></math>" role="presentation" style="font-size: 113%; position: relative;"><span id="MJXc-Node-55" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-56" class="mjx-mrow"><span id="MJXc-Node-57" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">α</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math></span></span><script type="math/tex" id="MathJax-Element-23">\alpha</script></span><span> ~ (-5, 5) with a step of 0.2 to find the minimum SSD between the target patch and the current patch. This way we can find the optimal alphas for each image to focus on a customized point.</span></p><p><img src="https://i.imgur.com/5b20v80.png" alt=""></p><ul>
+<li><span>The red dot is where user has clicked.</span></li>
+</ul><h3 id="Using-Real-Data" data-id="Using-Real-Data"><a class="anchor hidden-xs" href="#Using-Real-Data" title="Using-Real-Data"><span class="octicon octicon-link"></span></a><span>Using Real Data</span></h3><p><span>We used a setup that measures our phone’s location accurately by taking pictures from top down.</span></p><p><img src="https://i.imgur.com/8OUYFVf.png" alt=""></p><p><span>We then generated a 5x5 grid of all images.</span></p><table>
+<thead>
+<tr>
+<th><img src="https://i.imgur.com/oOWQGWD.jpg" alt=""></th>
+<th><img src="https://i.imgur.com/zvoMFA6.jpg" alt=""></th>
+<th><img src="https://i.imgur.com/psCcrw3.jpg" alt=""></th>
+<th><img src="https://i.imgur.com/nLQZjxs.jpg" alt=""></th>
+<th><img src="https://i.imgur.com/N6ZjaPr.jpg" alt=""></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://i.imgur.com/IB2ae3E.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/bmf3cmc.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/2tSu3Yi.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/Fj2IjL2.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/OVwZdKG.jpg" alt=""></td>
+</tr>
+<tr>
+<td><img src="https://i.imgur.com/lQok9tf.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/WiMf2wR.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/L3h8LDQ.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/SLY7Qn0.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/StQlHSw.jpg" alt=""></td>
+</tr>
+<tr>
+<td><img src="https://i.imgur.com/axTntEw.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/vNNJDmP.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/MHN4IrW.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/7tCk1Um.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/tWmu3K0.jpg" alt=""></td>
+</tr>
+<tr>
+<td><img src="https://i.imgur.com/Q7ULeuN.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/wNPQ24u.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/jHdJzH1.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/RMo3N44.jpg" alt=""></td>
+<td><img src="https://i.imgur.com/AO5fHru.jpg" alt=""></td>
+</tr>
+</tbody>
+</table><p><span>And used this to generate our focus and aperature.</span></p><table>
+<thead>
+<tr>
+<th><span>Focus</span></th>
+<th><span>Aperture</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://jason-khan.github.io/final_projs/own_focus.gif" alt=""></td>
+<td><img src="https://jason-khan.github.io/final_projs/own_aperture.gif" alt=""></td>
+</tr>
+</tbody>
+</table><p><span>Our focus does not have a “focus”. I think it failed because our camera has too large a movement between positions. However, this is already the smallest amount possible given the grid setup that we have on the table.</span></p><h2 id="Summary" data-id="Summary"><a class="anchor hidden-xs" href="#Summary" title="Summary"><span class="octicon octicon-link"></span></a><span>Summary</span></h2><p><span>To summarize our semester of wonderful image manipulations and computer vision explorations, we had a lot of fun through days and nights of projects. Bells and Whistles continue to push us beyond what we have. To learn more about Computer Vision, we hope that we can join CS280 next semester.</span></p></div>
     <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
         <div class="pull-right dropdown">
             <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
@@ -61,9 +208,30 @@
                 <div class="toc"><ul class="nav">
 <li class=""><a href="#CS-194-Final-Projects" title="CS 194 Final Projects">CS 194 Final Projects</a><ul class="nav">
 <li><a href="#Jason-Wang-amp-Jenny-Song" title="Jason Wang &amp; Jenny Song">Jason Wang &amp; Jenny Song</a></li>
-<li><a href="#I-Poor-Man’s-Augmented-Reality" title="I. Poor Man’s Augmented Reality">I. Poor Man’s Augmented Reality</a></li>
-<li><a href="#II-A-Neural-Algorithm-of-Artistic-Style" title="II. A Neural Algorithm of Artistic Style">II. A Neural Algorithm of Artistic Style</a></li>
-<li><a href="#III-Lightfield-Camera" title="III. Lightfield Camera">III. Lightfield Camera</a></li>
+<li class=""><a href="#I-Poor-Man’s-Augmented-Reality" title="I. Poor Man’s Augmented Reality">I. Poor Man’s Augmented Reality</a><ul class="nav">
+<li><a href="#Setup" title="Setup">Setup</a></li>
+<li><a href="#Keypoints-with-known-3D-world-coordinates" title="Keypoints with known 3D world coordinates">Keypoints with known 3D world coordinates</a></li>
+<li class=""><a href="#Propogating-Keypoints-to-other-Images-in-the-Video" title="Propogating Keypoints to other Images in the Video">Propogating Keypoints to other Images in the Video</a></li>
+<li class=""><a href="#Calibrating-the-Camera" title="Calibrating the Camera">Calibrating the Camera</a></li>
+<li><a href="#Projecting-a-cube-in-the-Scene" title="Projecting a cube in the Scene">Projecting a cube in the Scene</a></li>
+<li class=""><a href="#Result" title="Result">Result</a></li>
+</ul>
+</li>
+<li class=""><a href="#II-A-Neural-Algorithm-of-Artistic-Style" title="II. A Neural Algorithm of Artistic Style">II. A Neural Algorithm of Artistic Style</a><ul class="nav">
+<li class=""><a href="#Results" title="Results">Results</a></li>
+</ul>
+</li>
+<li class=""><a href="#III-Lightfield-Camera" title="III. Lightfield Camera">III. Lightfield Camera</a><ul class="nav">
+<li class=""><a href="#Depth-Refocusing" title="Depth Refocusing">Depth Refocusing</a></li>
+<li class=""><a href="#Aperture-Adjustment" title="Aperture Adjustment">Aperture Adjustment</a></li>
+</ul>
+</li>
+<li class=""><a href="#Bells-and-Whistles" title="Bells and Whistles">Bells and Whistles</a><ul class="nav">
+<li class=""><a href="#Interactive-Refocusing" title="Interactive Refocusing">Interactive Refocusing</a></li>
+<li class=""><a href="#Using-Real-Data" title="Using Real Data">Using Real Data</a></li>
+</ul>
+</li>
+<li><a href="#Summary" title="Summary">Summary</a></li>
 </ul>
 </li>
 </ul>
@@ -75,9 +243,30 @@
         <div class="toc"><ul class="nav">
 <li class=""><a href="#CS-194-Final-Projects" title="CS 194 Final Projects">CS 194 Final Projects</a><ul class="nav">
 <li><a href="#Jason-Wang-amp-Jenny-Song" title="Jason Wang &amp; Jenny Song">Jason Wang &amp; Jenny Song</a></li>
-<li><a href="#I-Poor-Man’s-Augmented-Reality" title="I. Poor Man’s Augmented Reality">I. Poor Man’s Augmented Reality</a></li>
-<li><a href="#II-A-Neural-Algorithm-of-Artistic-Style" title="II. A Neural Algorithm of Artistic Style">II. A Neural Algorithm of Artistic Style</a></li>
-<li><a href="#III-Lightfield-Camera" title="III. Lightfield Camera">III. Lightfield Camera</a></li>
+<li class=""><a href="#I-Poor-Man’s-Augmented-Reality" title="I. Poor Man’s Augmented Reality">I. Poor Man’s Augmented Reality</a><ul class="nav">
+<li><a href="#Setup" title="Setup">Setup</a></li>
+<li><a href="#Keypoints-with-known-3D-world-coordinates" title="Keypoints with known 3D world coordinates">Keypoints with known 3D world coordinates</a></li>
+<li class=""><a href="#Propogating-Keypoints-to-other-Images-in-the-Video" title="Propogating Keypoints to other Images in the Video">Propogating Keypoints to other Images in the Video</a></li>
+<li class=""><a href="#Calibrating-the-Camera" title="Calibrating the Camera">Calibrating the Camera</a></li>
+<li><a href="#Projecting-a-cube-in-the-Scene" title="Projecting a cube in the Scene">Projecting a cube in the Scene</a></li>
+<li class=""><a href="#Result" title="Result">Result</a></li>
+</ul>
+</li>
+<li class=""><a href="#II-A-Neural-Algorithm-of-Artistic-Style" title="II. A Neural Algorithm of Artistic Style">II. A Neural Algorithm of Artistic Style</a><ul class="nav">
+<li class=""><a href="#Results" title="Results">Results</a></li>
+</ul>
+</li>
+<li class=""><a href="#III-Lightfield-Camera" title="III. Lightfield Camera">III. Lightfield Camera</a><ul class="nav">
+<li class=""><a href="#Depth-Refocusing" title="Depth Refocusing">Depth Refocusing</a></li>
+<li class=""><a href="#Aperture-Adjustment" title="Aperture Adjustment">Aperture Adjustment</a></li>
+</ul>
+</li>
+<li class=""><a href="#Bells-and-Whistles" title="Bells and Whistles">Bells and Whistles</a><ul class="nav">
+<li class=""><a href="#Interactive-Refocusing" title="Interactive Refocusing">Interactive Refocusing</a></li>
+<li class=""><a href="#Using-Real-Data" title="Using Real Data">Using Real Data</a></li>
+</ul>
+</li>
+<li><a href="#Summary" title="Summary">Summary</a></li>
 </ul>
 </li>
 </ul>
