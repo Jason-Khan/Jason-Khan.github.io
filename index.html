@@ -1,333 +1,402 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<!--[if IE 8]>
-<html id="ie8" lang="en-US">
-<![endif]-->
-<!--[if !(IE 8) ]><!-->
-<html lang="en-US">
-<!--<![endif]-->
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width" />
-<link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="pingback" href="http://localhost:8888/wordpress/xmlrpc.php" />
-<title>Kehan</title>
-<link rel='dns-prefetch' href='//fonts.googleapis.com' />
-<link rel='dns-prefetch' href='//s.w.org' />
-<link rel="alternate" type="application/rss+xml" title="Kehan &raquo; Feed" href="http://localhost:8888/wordpress/feed/" />
-<link rel="alternate" type="application/rss+xml" title="Kehan &raquo; Comments Feed" href="http://localhost:8888/wordpress/comments/feed/" />
-		<script type="text/javascript">
-			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/localhost:8888\/wordpress\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.1"}};
-			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
-		</script>
-		<style type="text/css">
-img.wp-smiley,
-img.emoji {
-	display: inline !important;
-	border: none !important;
-	box-shadow: none !important;
-	height: 1em !important;
-	width: 1em !important;
-	margin: 0 .07em !important;
-	vertical-align: -0.1em !important;
-	background: none !important;
-	padding: 0 !important;
-}
-</style>
-	<link rel='stylesheet' id='wp-block-library-css'  href='http://localhost:8888/wordpress/wp-includes/css/dist/block-library/style.min.css?ver=5.2.1' type='text/css' media='all' />
-<link rel='stylesheet' id='bootstrap-css'  href='http://localhost:8888/wordpress/wp-content/themes/nisarg/css/bootstrap.css?ver=5.2.1' type='text/css' media='all' />
-<link rel='stylesheet' id='font-awesome-css'  href='http://localhost:8888/wordpress/wp-content/themes/nisarg/font-awesome/css/font-awesome.min.css?ver=5.2.1' type='text/css' media='all' />
-<link rel='stylesheet' id='nisarg-style-css'  href='http://localhost:8888/wordpress/wp-content/themes/nisarg/style.css?ver=5.2.1' type='text/css' media='all' />
-<style id='nisarg-style-inline-css' type='text/css'>
-	/* Color Scheme */
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-	/* Accent Color */
+  <title>Kehan Wang</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-	a:active,
-	a:hover,
-	a:focus {
-	    color: #009688;
-	}
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-	.main-navigation .primary-menu > li > a:hover, .main-navigation .primary-menu > li > a:focus {
-		color: #009688;
-	}
-	
-	.main-navigation .primary-menu .sub-menu .current_page_item > a,
-	.main-navigation .primary-menu .sub-menu .current-menu-item > a {
-		color: #009688;
-	}
-	.main-navigation .primary-menu .sub-menu .current_page_item > a:hover,
-	.main-navigation .primary-menu .sub-menu .current_page_item > a:focus,
-	.main-navigation .primary-menu .sub-menu .current-menu-item > a:hover,
-	.main-navigation .primary-menu .sub-menu .current-menu-item > a:focus {
-		background-color: #fff;
-		color: #009688;
-	}
-	.dropdown-toggle:hover,
-	.dropdown-toggle:focus {
-		color: #009688;
-	}
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-	@media (min-width: 768px){
-		.main-navigation .primary-menu > .current_page_item > a,
-		.main-navigation .primary-menu > .current_page_item > a:hover,
-		.main-navigation .primary-menu > .current_page_item > a:focus,
-		.main-navigation .primary-menu > .current-menu-item > a,
-		.main-navigation .primary-menu > .current-menu-item > a:hover,
-		.main-navigation .primary-menu > .current-menu-item > a:focus,
-		.main-navigation .primary-menu > .current_page_ancestor > a,
-		.main-navigation .primary-menu > .current_page_ancestor > a:hover,
-		.main-navigation .primary-menu > .current_page_ancestor > a:focus,
-		.main-navigation .primary-menu > .current-menu-ancestor > a,
-		.main-navigation .primary-menu > .current-menu-ancestor > a:hover,
-		.main-navigation .primary-menu > .current-menu-ancestor > a:focus {
-			border-top: 4px solid #009688;
-		}
-		.main-navigation ul ul a:hover,
-		.main-navigation ul ul a.focus {
-			color: #fff;
-			background-color: #009688;
-		}
-	}
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-	.main-navigation .primary-menu > .open > a, .main-navigation .primary-menu > .open > a:hover, .main-navigation .primary-menu > .open > a:focus {
-		color: #009688;
-	}
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
 
-	.main-navigation .primary-menu > li > .sub-menu  li > a:hover,
-	.main-navigation .primary-menu > li > .sub-menu  li > a:focus {
-		color: #fff;
-		background-color: #009688;
-	}
+  <!-- =======================================================
+  * Template Name: iPortfolio - v3.2.0
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
 
-	@media (max-width: 767px) {
-		.main-navigation .primary-menu .open .sub-menu > li > a:hover {
-			color: #fff;
-			background-color: #009688;
-		}
-	}
+<body>
 
-	.sticky-post{
-	    background: #009688;
-	    color:white;
-	}
-	
-	.entry-title a:hover,
-	.entry-title a:focus{
-	    color: #009688;
-	}
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
-	.entry-header .entry-meta::after{
-	    background: #009688;
-	}
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
 
-	.fa {
-		color: #009688;
-	}
+      <div class="profile">
+        <img src="assets/img/head.jpg" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">Kehan Wang</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="https://github.com/Jason-Khan/" class="github"><i class="bx bxl-github"></i></a>
+          <a href="https://www.linkedin.com/in/wang-kehan/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
 
-	.btn-default{
-		border-bottom: 1px solid #009688;
-	}
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
 
-	.btn-default:hover, .btn-default:focus{
-	    border-bottom: 1px solid #009688;
-	    background-color: #009688;
-	}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>Kehan Wang</h1>
+      <p>EECS 5th Year Master student at UC Berkeley.<br> Advised by <a href="http://www-video.eecs.berkeley.edu/~avz/">Prof. Avideh Zakhor</a>.</p>
+    </div>
+  </section><!-- End Hero -->
 
-	.nav-previous:hover, .nav-next:hover{
-	    border: 1px solid #009688;
-	    background-color: #009688;
-	}
+  <main id="main">
 
-	.next-post a:hover,.prev-post a:hover{
-	    color: #009688;
-	}
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
 
-	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
-	    color: #009688;
-	}
+        <div class="section-title">
+          <h2>About</h2>
+          <p>Hi! I'm Kehan Wang, a EECS 5th Year Master student at UC Berkeley advised by <a href="http://www-video.eecs.berkeley.edu/~avz/">Prof. Avideh Zakhor</a>. 
+             My research interests includes multi-modal deep learning and multiple fields in Computer Vision such as object detection and inpainting.
+             I also completed my undergraduate degree in Computer Science and Data Science at UC Berkeley, and worked with <a href="https://people.eecs.berkeley.edu/~guanhua/">Guanhua Wang</a> at <a href="https://rise.cs.berkeley.edu/">RISELab</a> on the verge of Machine Learning and Distributed Systems.</p>
+        </div>
 
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="assets/img/wbody.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3><span class="typed" data-typed-items="Researcher, Developer"></span></h3>
+            <br>
+            <p>
+              I am experienced in both research and software engineering, and hope to become a machine learning engineer in the field of Deep Learning or Computer Vision. <br>
+              <br>
+              My research experiences challenged me to solve problems creatively, to experiment with potential ideas thoroughly, and to look at other people's work critically. <br>
+              <br>
+              My past internships focused on software development. They helped me build a solid foundation in software engineering and made me a better coder. <br>
+              <br>
+            </p>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master of Science, EECS</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Location:</strong> <span>Berkeley, CA 94708</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>(510)345-7113</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>wang.kehan [at] berkeley [dot] edu</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
 
-	#secondary .widget-title::after{
-		background-color: #009688;
-	    content: "";
-	    position: absolute;
-	    width: 50px;
-	    display: block;
-	    height: 4px;    
-	    bottom: -15px;
-	}
+      </div>
+    </section>
+    <!-- End About Section -->
 
-	#secondary .widget a:hover,
-	#secondary .widget a:focus{
-		color: #009688;
-	}
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills section-bg">
+      <div class="container">
 
-	#secondary .widget_calendar tbody a {
-	    background-color: #009688;
-	    color: #fff;
-	    padding: 0.2em;
-	}
+        <div class="section-title">
+          <h2>Programming Tools</h2>
+          <p>I mainly use Python in classes and researches, but having used more than 10 different programming languages, I can learn languages very quickly.</p>
+        </div>
 
-	#secondary .widget_calendar tbody a:hover{
-	    background-color: #009688;
-	    color: #fff;
-	    padding: 0.2em;
-	}	
+        <div class="row skills-content">
 
-</style>
-<link rel='stylesheet' id='nisarggooglefonts-css'  href='//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic' type='text/css' media='all' />
-<script type='text/javascript' src='http://localhost:8888/wordpress/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
-<script type='text/javascript' src='http://localhost:8888/wordpress/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
-<!--[if lt IE 9]>
-<script type='text/javascript' src='http://localhost:8888/wordpress/wp-content/themes/nisarg/js/html5shiv.js?ver=3.7.3'></script>
-<![endif]-->
-<link rel='https://api.w.org/' href='http://localhost:8888/wordpress/wp-json/' />
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://localhost:8888/wordpress/xmlrpc.php?rsd" />
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://localhost:8888/wordpress/wp-includes/wlwmanifest.xml" /> 
-<meta name="generator" content="WordPress 5.2.1" />
+          <div class="col-lg-6" data-aos="fade-up">
 
-<style type="text/css">
-        .site-header { background: #919ea3; }
-</style>
+            <div class="progress">
+              <span class="skill">Python <i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
 
-		<style type="text/css" id="nisarg-header-css">
-					.site-header{
-				-webkit-box-shadow: 0px 0px 1px 1px rgba(182,182,182,0.3);
-		    	-moz-box-shadow: 0px 0px 1px 1px rgba(182,182,182,0.3);
-		    	-o-box-shadow: 0px 0px 1px 1px rgba(182,182,182,0.3);
-		    	box-shadow: 0px 0px 1px 1px rgba(182,182,182,0.3);
-			}
-			.site-header {
-					height: 300px;
-				}
-				@media (max-width: 767px) {
-					.site-header {
-						height: 200px;
-					}
-				}
-				@media (max-width: 359px) {
-					.site-header {
-						height: 150px;
-					}
-				}
-					.site-header .home-link {
-				min-height: 0;
-			}
-					</style>
-		<style type="text/css" id="custom-background-css">
-body.custom-background { background-color: #828282; }
-</style>
-	</head>
-<body class="home blog custom-background">
-<div id="page" class="hfeed site">
-<header id="masthead"  role="banner">
-	<nav id="site-navigation" class="main-navigation navbar-fixed-top navbar-left" role="navigation">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="container" id="navigation_menu">
-			<div class="navbar-header">
-									<button type="button" class="menu-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span> 
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-									<a class="navbar-brand" href="http://localhost:8888/wordpress/">Kehan</a>
-			</div><!-- .navbar-header -->
-			<div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-menu" class="primary-menu"><li id="menu-item-9" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-9"><a href="http://localhost:8888/wordpress" aria-current="page">Home</a></li>
-<li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-10"><a href="http://localhost:8888/wordpress" aria-current="page">Projects</a></li>
-</ul></div>		</div><!--#container-->
-	</nav>
-	<div id="cc_spacer"></div><!-- used to clear fixed navigation by the themes js -->  
-	<div class="site-header">
-		<div class="site-branding">
-			<a class="home-link" href="http://localhost:8888/wordpress/" title="Kehan" rel="home">
-				<h1 class="site-title">Kehan</h1>
-				<h2 class="site-description"></h2>
-			</a>
-		</div><!--.site-branding-->
-	</div><!--.site-header-->
-</header>
-<div id="content" class="site-content">
+            <div class="progress">
+              <span class="skill">C/C++ <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
 
-	<div class="container">
-		<div class="row">
-			<div id="primary" class="col-md-9 content-area">
-				<main id="main" class="site-main" role="main">
-									
-																
-<article id="post-1"  class="post-content post-1 post type-post status-publish format-standard hentry category-uncategorized">
+            <div class="progress">
+              <span class="skill">Java <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
 
-	
-	
-	<header class="entry-header">
+          </div>
 
-		<span class="screen-reader-text">Hello world!</span>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
 
-					<h2 class="entry-title">
-				<a href="http://localhost:8888/wordpress/2019/05/24/hello-world/" rel="bookmark">Hello world!</a>
-			</h2>
-		
-				<div class="entry-meta">
-			<h5 class="entry-date"><i class="fa fa-calendar-o"></i> <a href="http://localhost:8888/wordpress/2019/05/24/hello-world/" title="7:16 am" rel="bookmark"><time class="entry-date" datetime="2019-05-24T07:16:11+00:00" pubdate>May 24, 2019 </time></a><span class="byline"><span class="sep"></span><i class="fa fa-user"></i>
-<span class="author vcard"><a class="url fn n" href="http://localhost:8888/wordpress/author/jasonkhan/" title="View all posts by JasonKhan" rel="author">JasonKhan</a></span></span> <i class="fa fa-comments-o"></i><span class="screen-reader-text">Comments </span> <a href="http://localhost:8888/wordpress/2019/05/24/hello-world/#comments" class="comments-link" >1 comment</a></h5>
-		</div><!-- .entry-meta -->
-			</header><!-- .entry-header -->
+            <div class="progress">
+              <span class="skill">PyTorch <i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
 
-	<div class="entry-summary">
-		<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>
-	</div><!-- .entry-summary -->
+            <div class="progress">
+              <span class="skill">TensorFlow <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
 
-	<footer class="entry-footer">
-			</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-																		</main><!-- #main -->
-			</div><!-- #primary -->
-			<div id="secondary" class="col-md-3 sidebar widget-area" role="complementary">
-		<aside id="search-2" class="widget widget_search">
-<form role="search" method="get" class="search-form" action="http://localhost:8888/wordpress/">
-	<label>
-		<span class="screen-reader-text">Search for:</span>
-		<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" />
-	</label>
-	<button type="submit" class="search-submit"><span class="screen-reader-text">Search</span></button>
-</form>
-</aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h4 class="widget-title">Recent Posts</h4>		<ul>
-											<li>
-					<a href="http://localhost:8888/wordpress/2019/05/24/hello-world/">Hello world!</a>
-									</li>
-					</ul>
-		</aside><aside id="archives-2" class="widget widget_archive"><h4 class="widget-title">Archives</h4>		<ul>
-				<li><a href='http://localhost:8888/wordpress/2019/05/'>May 2019</a>&nbsp;(1)</li>
-		</ul>
-			</aside><aside id="categories-2" class="widget widget_categories"><h4 class="widget-title">Categories</h4>		<ul>
-				<li class="cat-item cat-item-1"><a href="http://localhost:8888/wordpress/category/uncategorized/">Uncategorized</a> (1)
-</li>
-		</ul>
-			</aside></div><!-- #secondary .widget-area -->
+            <div class="progress">
+              <span class="skill">Swift/Kotlin/React-Native <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
 
+          </div>
 
-		</div><!--row-->
-	</div><!--.container-->
-		</div><!-- #content -->
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			&copy; 2019			<span class="sep"> | </span>
-			Proudly Powered by 			<a href=" https://wordpress.org/" >WordPress</a>
-			<span class="sep"> | </span>
-			Theme: <a href="https://wordpress.org/themes/nisarg/" rel="designer">Nisarg</a>		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
-<script type='text/javascript' src='http://localhost:8888/wordpress/wp-content/themes/nisarg/js/bootstrap.js?ver=5.2.1'></script>
-<script type='text/javascript' src='http://localhost:8888/wordpress/wp-content/themes/nisarg/js/navigation.js?ver=5.2.1'></script>
-<script type='text/javascript' src='http://localhost:8888/wordpress/wp-content/themes/nisarg/js/skip-link-focus-fix.js?ver=5.2.1'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var screenReaderText = {"expand":"expand child menu","collapse":"collapse child menu"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='http://localhost:8888/wordpress/wp-content/themes/nisarg/js/nisarg.js?ver=5.2.1'></script>
-<script type='text/javascript' src='http://localhost:8888/wordpress/wp-includes/js/wp-embed.min.js?ver=5.2.1'></script>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Skills Section -->
+
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Resume</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>Master of Science, EECS</h4>
+              <h5>2021 - 2022</h5>
+              <p><em>University of California, Berkeley</em></p>
+            </div>
+            <div class="resume-item">
+              <h4>Bachelor of Arts, Computer Science &amp; Data Science</h4>
+              <h5>2017 - 2021</h5>
+              <p><em>University of California, Berkeley</em></p>
+              <p>GPA 3.90; Dean's List; Honors to date</p>
+              </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">Coursework Highlight</h3>
+            <ul>
+              <li><a href="https://cs182sp21.github.io/">CS 182: Deep Neural Networks</a></li>
+              <li><a href="https://inst.eecs.berkeley.edu/~cs188/fa19/">CS 188: Artificial Intelligence</a></li>
+              <li><a href="https://people.eecs.berkeley.edu/~jrs/189/">CS 189: Machine Learning</a></li>
+              <li><a href="https://inst.eecs.berkeley.edu/~cs194-26/fa20/">CS 194-26: Computational Photography</a></li>
+              <li><a href="https://github.com/Jason-Khan/dr_inpaint">CS 280: Computer Vision</a></li>
+              <li><a href="http://rail.eecs.berkeley.edu/deeprlcourse/">CS 285: Deep Reinforcement Learning</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Honor</h3>
+            <div class="resume-item">
+              <h4>1st Place Winner of Cal Hacks 5.0</h4>
+              <h5>Nov 2018</h5>
+              <p><em>Berkeley, CA</em></p>
+              <ul>
+                <li>1st place in Cal Hacks 5.0, a 36-hour hackathon with
+                  ~2000 hackers, ~250 teams from all over the world.</li>
+                <li>Navii is an AR mobile app for indoor navigation.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Leadership</h3>
+            <div class="resume-item">
+              <h4>Industrial Relations Chair</h4>
+              <h5>Jan 2020 - Dec 2020</h5>
+              <p><em>Upsilon Pi Epsilon, Nu Chapter</em></p>
+              <p>UPE is a Computer Science Honor Society. Industrial
+                Relations committee manages its relations to both
+                the EECS department and our partner companies.</p>
+            </div>
+            <div class="resume-item">
+              <h4>Student Union President</h4>
+              <h5>Oct 2015 - Jun 2016</h5>
+              <p><em>Nanjing Foreign Language School, IC</em></p>
+              <p>Organized school-wide student activities. Handles
+                the communication between the student body and
+                the school administration.</p>
+            </div>
+          </div>
+          
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="resume-title">Research</h3>
+            <div class="resume-item">
+              <h4>Distributed Reinforcement Learning</h4>
+              <h5>2019 - 2020</h5>
+              <p><em>RISELab - UC Berkeley</em></p>
+              <p>Distribute a drone’s central controller work
+                  onto four individual propellers with Policy Gradient
+                  and Imitation learning on MPC using PyTorch.
+              </p>
+            </div>
+            <div class="resume-item">
+              <h4>Wavelet: Deep Learning Speed-up</h4>
+              <h5>2020 - 2021</h5>
+              <p><em>RISELab - UC Berkeley</em></p>
+              <ul>
+                <li>Wavelet: By interleaving different GPU’s peaks and
+                  valleys in memory usage, our tick-tock training
+                  scheduler can achieve >2x speedup.</li>
+                <li><a href="https://people.eecs.berkeley.edu/~guanhua/paper/wavelet-mlsys21.pdf">Paper</a> 
+                  accepted by MLSys 2021.</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>Barcode Detection in High Resolution Images</h4>
+              <h5>2020 - 2021</h5>
+              <p><em>BAIR - UC Berkeley</em></p>
+              <ul>
+                <li>Propose a new detection pipeline using a regional
+                  proposal network to find regions of most barcodes, fully
+                  convolutional network for pixel-wise classification,
+                  and OpenCV methods for bounding box extraction.</li>
+                <li>Faster and more accurate than YOLOv4, Mask-RCNN
+                  and state-of-the-art barcode detection models.</li>
+                <li><a href="https://arxiv.org/pdf/2102.06868.pdf">Paper</a> 
+                  submitted to ICIP 2021.</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>Multi-modal Semantic Misinformation Detection</h4>
+              <h5>2021 - Present</h5>
+              <p><em>BAIR - UC Berkeley</em></p>
+              <ul>
+                <li>Detect if a Facebook post matches its video content.</li>
+                <li>Use S3D to extract video activity, BERT to extract language
+                  features from post's text and also video's transcript, 
+                  FaceNet to extract facial features in video, spaCy to extract Named Entities in text,
+                  embed them to the same semantic space to classify if the video and the text are a match.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="resume-title">Work Experience</h3>
+            <div class="resume-item">
+              <h4>Software Development Intern</h4>
+              <h5>May 2020 - Aug 2020</h5>
+              <p><em>Microsoft - Redmond, WA</em></p>
+              <ul>
+                <li>Worked on Microsoft Teams, a unified
+                  communication and collaboration platform.</li>
+                <li>Developed new features on the Desktop/Webclient:
+                  Expiry Status (set “Away” for 30 mins), Set Out of
+                  Office auto-reply message.</li>
+                <li>Implemented features using Angular, Typescript, C#.</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>Mobile Software Development Intern</h4>
+              <h5>May 2019 - Aug 2019</h5>
+              <p><em>Brilliant Home Technology - San Mateo, CA</em></p>
+              <ul>
+                <li>Brilliant Smart Home control panel and mobile app
+                  connect all smart home devices together.</li>
+                <li>Developed new features: Alexa Skills compatibility,
+                  user preferences persistence, smart shades support,
+                  and user home devices administration.</li>
+                <li>Implemented features on both Android and iOS with MVVM architecture.</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>Full-Stack Software Development Intern</h4>
+              <h5>Jun 2018 - May 2019</h5>
+              <p><em>California PATH - Berkeley, CA</em></p>
+              <ul>
+                <li>Developed PathTransit, a public transit app that
+                  supports bus-user location matching for transit
+                  services such as BART and AC Transit.</li>
+                <li>Used PostgreSQL, Flask APIs and React-Native</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>Backend Software Developer Intern</h4>
+              <h5>Feb 2018 - May 2018</h5>
+              <p><em>Simpatica Medicine, Inc - Berkeley, CA</em></p>
+              <p>Developed a scalable backend for increasing data
+                needs from machine learning on how different AIDS
+                patients react to different medical treatments.</p>
+            </div>
+          </div>
+
+          
+        </div>
+
+      </div>
+    </section>
+    <!-- End Resume Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>iPortfolio</span></strong>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
 </body>
+
 </html>
