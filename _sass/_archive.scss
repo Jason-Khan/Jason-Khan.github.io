@@ -3,7 +3,6 @@
    ========================================================================== */
 
 .archive {
-  margin-bottom: 2em;
 
   @include breakpoint($medium) {
     @include span(12 of 12);
@@ -13,17 +12,47 @@
     @include span(10 of 12 last);
     @include prefix(0.5 of 12);
   }
-
+    
   a {
-    text-decoration: underline;
+    color: #1772d0;
+    text-decoration: none;
+  }
 
-    &:hover {
-      text-decoration: underline;
+  a:focus,
+  a:hover {
+    color: #f09228;
+    text-decoration: none;
+  }
 
-      img {
-        box-shadow: 0 0 10px rgba(#000, 0.25);
-      }
-    }
+  body,
+  td,
+  th,
+  tr,
+  p,
+  a {
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-size: 14px
+  }
+
+
+  strong {
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+
+  .one {
+    width: 160px;
+    height: 160px;
+    position: relative;
+  }
+
+  .two {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    transition: opacity .2s ease-in-out;
+    -moz-transition: opacity .2s ease-in-out;
+    -webkit-transition: opacity .2s ease-in-out;
   }
 }
 

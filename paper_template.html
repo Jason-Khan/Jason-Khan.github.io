@@ -1,0 +1,40 @@
+<tr style="border:0" onmouseout="MAMPC_stop()" onmouseover="MAMPC_start()">
+  <td style="padding:20px;width:25%;vertical-align:middle;border:0">
+    <div style="width: 400px; position: relative;">
+      <div id='MAMPC_image' style="width: 400px; position: absolute; transition: opacity 0.2s ease-in-out 0s; -moz-transition: opacity .2s ease-in-out; -webkit-transition: opacity .2s ease-in-out;">
+      <img src='../images/MAMPC_hover.png' width="100%">
+      </div>
+      <img src='../images/MAMPC.png' width="100%">
+    </div>
+    <script type="text/javascript">
+      function MAMPC_start() {
+        document.getElementById('MAMPC_image').style.opacity = "1";
+      }
+
+      function MAMPC_stop() {
+        document.getElementById('MAMPC_image').style.opacity = "0";
+      }
+      MAMPC_stop()
+    </script>
+  </td>
+  <td style="padding:20px;width:75%;vertical-align:middle;border:0">
+    <a style="font-weight: 600" href="https://arxiv.org/abs/2112.07238">Composing MPC with LQR and Neural Networks for Efficient and Stable Control</a>
+    <br>
+    Fangyu Wu, Guanhua Wang, Siyuan Zhuang, Kehan Wang, Alexander Keimer, Ion Stoica, Alexandre Bayen
+    <a href="https://www.fangyuwu.com/">Fangyu Wu</a>,
+    <a href="https://bertjiazheng.github.io/">Guanhua Wang</a>,
+    <a href="https://www.linkedin.com/in/siyuanzhuang/">Siyuan Zhuang</a>,
+    <strong>Kehan Wang</strong>,
+    <a href="https://scholar.google.com/citations?user=addL49YAAAAJ&hl=en">Alexander Keimer</a>,
+    <a href="http://people.eecs.berkeley.edu/~istoica/">Ion Stoica</a>,
+    <a href="https://bayen.berkeley.edu/alex-bayen">Alexandre Bayen</a>
+    <br>
+    <em>arXiv</em>, 2021
+    <br>
+    <a href="https://arxiv.org/abs/2112.07238">paper</a>
+<!-- /
+    <a href="https://github.com/viplabB/SBD/">code</a> -->
+    <p></p>
+    <p>Memory-Augmented MPC is a provably stable control that combines a linear quadratic regulator, a neural network, and an MPC.</p>
+  </td>
+</tr>
