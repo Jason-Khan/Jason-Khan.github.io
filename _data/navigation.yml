@@ -3,5 +3,8 @@ main:
   - title: "Publications"
     url: /publications/
     
+  - title: "Resume"
+    url: /Kehan_Wang_Resume.pdf
+
   - title: "CV"
-    url: /cv/
+    url: /Kehan_Wang_CV.pdf
