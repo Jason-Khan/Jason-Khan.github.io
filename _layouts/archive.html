@@ -24,15 +24,19 @@ layout: default
           <div id='misinfo2_image' style="width: 200px; position: absolute; transition: opacity 0.2s ease-in-out 0s; -moz-transition: opacity .2s ease-in-out; -webkit-transition: opacity .2s ease-in-out;">
             <img src='../images/teaser.png' width="100%">
           </div>
-          <img src='../images/cross-transformer.png' width="100%">
+          <div id='misinfo2_image2' style="width: 200px; position: relative; transition: opacity 0.2s ease-in-out 0s; -moz-transition: opacity .2s ease-in-out; -webkit-transition: opacity .2s ease-in-out; z-index: 9;">
+            <img src='../images/cross-transformer.png' width="100%">
+          </div>
         </div>
         <script type="text/javascript">
           function misinfo2_start() {
             document.getElementById('misinfo2_image').style.opacity = "1";
+            document.getElementById('misinfo2_image2').style.opacity = "0";
           }
   
           function misinfo2_stop() {
             document.getElementById('misinfo2_image').style.opacity = "0";
+            document.getElementById('misinfo2_image2').style.opacity = "1";
           }
           misinfo2_stop()
         </script>
@@ -45,7 +49,7 @@ layout: default
         <a href="https://sethzhao506.github.io/">Seth Z. Zhao</a>,
         <a href="https://dchan.cc/">David Chan</a>,
         <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/zakhor.html">Avideh Zakhor</a>,
-        <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/canny.html">John Canny</a>,
+        <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/canny.html">John Canny</a>
         <br>
         <em>MMSP</em>, 2022
         <br>

@@ -7,7 +7,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
-Hi! I'm Kehan Wang, an EECS 5th Year Master student at UC Berkeley, advised by [Prof. Avideh Zakhor](http://www-video.eecs.berkeley.edu/~avz/). I am interested in different areas of representation learning and computer vision.
+Hi! I'm Kehan Wang. I work at Google Ads on the Dynamic Product Ads team. I obtained my both my Master's degree at UC Berkeley, advised by [Prof. Avideh Zakhor](http://www-video.eecs.berkeley.edu/~avz/). I am interested in different areas of representation learning and computer vision.
 
 As an undergrad, I received my Bachelor's degree in Computer Science and Data Science from [UC Berkeley](https://eecs.berkeley.edu/), and worked with [Guanhua Wang](https://people.eecs.berkeley.edu/~guanhua/) in [RISELab](https://rise.cs.berkeley.edu/) at the intersection of Machine Learning and Distributed Systems.
 
