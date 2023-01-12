@@ -18,6 +18,45 @@ layout: default
 
   <h1 class="page__title">{{ page.title }}</h1>
   <table class="archive" style="border:0px;border-spacing:0px;border-collapse:separate;">
+    <tr style="border:0" onmouseout="misinfo2_stop()" onmouseover="misinfo2_start()">
+      <td style="padding:20px;width:25%;vertical-align:middle;border:0">
+        <div style="width: 200px; position: relative;">
+          <div id='misinfo2_image' style="width: 200px; position: absolute; transition: opacity 0.2s ease-in-out 0s; -moz-transition: opacity .2s ease-in-out; -webkit-transition: opacity .2s ease-in-out;">
+            <img src='../images/teaser.png' width="100%">
+          </div>
+          <img src='../images/cross-transformer.png' width="100%">
+        </div>
+        <script type="text/javascript">
+          function misinfo2_start() {
+            document.getElementById('misinfo2_image').style.opacity = "1";
+          }
+  
+          function misinfo2_stop() {
+            document.getElementById('misinfo2_image').style.opacity = "0";
+          }
+          misinfo2_stop()
+        </script>
+      </td>
+      <td style="padding:20px;width:75%;vertical-align:middle;border:0">
+        <a style="font-weight: 600" href="http://www-video.eecs.berkeley.edu/papers/kwang-2/MMSP-Final-2022186318.pdf">Multimodal Semantic Mismatch Detection in Social Media Posts
+        </a>
+        <br>
+        <strong>Kehan Wang</strong>,
+        <a href="https://sethzhao506.github.io/">Seth Z. Zhao</a>,
+        <a href="https://dchan.cc/">David Chan</a>,
+        <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/zakhor.html">Avideh Zakhor</a>,
+        <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/canny.html">John Canny</a>,
+        <br>
+        <em>MMSP</em>, 2022
+        <br>
+        <a href="http://www-video.eecs.berkeley.edu/papers/kwang-2/MMSP-Final-2022186318.pdf">paper</a>
+  /
+        <a href="https://github.com/Jason-Khan/Semantic_Mismatch_Dataset">code</a>
+        <p></p>
+        <p>Detect misinformation in Twitter video posts based on multimodal semantic mismatch.</p>
+      </td>
+    </tr>
+
     <tr style="border:0" onmouseout="faceformer_stop()" onmouseover="faceformer_start()">
       <td style="padding:20px;width:25%;vertical-align:middle;border:0">
         <div style="width: 200px; position: relative;">
